@@ -6,6 +6,9 @@
 #include <tf/transform_broadcaster.h>
 // using namespace small_gicp;
 // typedef shared_ptr boost::shared_ptr;
+std::string dataset_path,data_config_path,output_label_path,output_graph_path,data_label_topic,data_graph_topic;
+
+
 bool compareLOOP_RESULT(const LOOP_RESULT& a, const LOOP_RESULT& b) {
     return a.match_fitness > b.match_fitness;  // 从小到大排序
 }
@@ -16,7 +19,7 @@ std::string get_label_path(std::string file_path,std::string data_name)
     size_t dot_idx = raw_name.find_last_of('.');
     std::string base_name = raw_name.substr(0, dot_idx);
     std::string file_name;
-    file_name = "/media/beabbit/T5 EVO/bag/rosbag_/mulran/spvnas/"+data_name+"/sensor_data/" +base_name+".label";  // 使锟斤拷锟绞碉拷锟斤拷锟侥硷拷锟斤拷
+    file_name = dataset_path+data_name+"/label/" +base_name+".label";  // 使锟斤拷锟绞碉拷锟斤拷锟侥硷拷锟斤拷
     return file_name;
 }
 
@@ -209,7 +212,7 @@ int main(int argc, char** argv)
                         0,0,0,1;
     }
     //param init
-    std::string dataset_path,data_config_path,output_label_path,output_graph_path,data_label_topic,data_graph_topic;
+
     nh.param<string>("data_process/dataset",dataset_path,"/media/beabbit/T5 EVO/data_odometry_velodyne/dataset/");
     nh.param<string>("data_process/config",data_config_path,"/media/beabbit/T5 EVO/data_odometry_velodyne/dataset/semantic-kitti.yaml");
     nh.param<string>("data_process/output_label",output_label_path,"/media/beabbit/T5 EVO/data_odometry_velodyne/EC/labels");
@@ -281,24 +284,24 @@ int main(int argc, char** argv)
     int Random_Number = 0;
     nh.param<int>("SG_data/random_number",Random_Number,0);
 
-    std::vector<std::string> lidar_bin_path = {"/media/beabbit/T5 EVO/bag/rosbag_/mulran/","/sensor_data/Ouster/"};
-    std::vector<std::string> lidar_label_path = {"/media/beabbit/T5 EVO/bag/rosbag_/mulran/spvnas/","/sensor_data"};
+    std::vector<std::string> lidar_bin_path = {dataset_path,"/bin"};
+    std::vector<std::string> lidar_label_path = {dataset_path,"/label"};
     data_bin_dir = lidar_bin_path[0] + data_name + lidar_bin_path[1];
     map_bin_dir = lidar_bin_path[0] + map_name + lidar_bin_path[1];
     data_label_dir = lidar_label_path[0] + data_name + lidar_label_path[1];
     map_label_dir = lidar_label_path[0] + map_name + lidar_label_path[1];
-    std::string data_dir  = "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"+data_name+"/graph_DCVC_10w/";
-    std::string datalist_dir  = "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"+data_name+"/graph_DCVC_10w";
-    // std::string data_dir  = "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"+data_name+"/graph_DCVC_10w/";
-    std::string map_dir = "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"+map_name+"/graph_DCVC_10w/";
-    std::string maplist_dir = "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"+map_name+"/graph_DCVC_10w";
+    std::string data_dir  = dataset_path+data_name+"/graphs/";
+    std::string datalist_dir  = dataset_path+data_name+"/graphs";
+    // std::string data_dir  = dataset_path+data_name+"/graphs/";
+    std::string map_dir = dataset_path+map_name+"/graphs/";
+    std::string maplist_dir = dataset_path+map_name+"/graphs";
 
-    std::string map_pcd_dir = "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"+map_name+"/map2.pcd";
-    std::string trans_error_dir = "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"+data_name+"/SGTD_trans_all.txt";
-    std::string rot_error_dir = "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"+data_name+"/SGTD_rots_all.txt";
-    std::string time_dir = "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"+data_name+"/SGTD_time_all.txt";
-    std::string CS1_time_dir = "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"+data_name+"/SGTD_CS1.txt";
-    std::string idx_dir = "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"+data_name+"/SGTD_idx.txt";
+    std::string map_pcd_dir = dataset_path+map_name+"/map.pcd";
+    std::string trans_error_dir = dataset_path+data_name+"/SGTD_trans_all.txt";
+    std::string rot_error_dir = dataset_path+data_name+"/SGTD_rots_all.txt";
+    std::string time_dir = dataset_path+data_name+"/SGTD_time_all.txt";
+    std::string CS1_time_dir = dataset_path+data_name+"/SGTD_CS1.txt";
+    std::string idx_dir = dataset_path+data_name+"/SGTD_idx.txt";
     // plt::ion();
     std::vector<double> map_x, map_y;
     std::vector<double> data_x, data_y;
@@ -347,7 +350,7 @@ int main(int argc, char** argv)
     tf::Transform transform;
     
     //map_cloud load 
-    cout<<"LOAD MAP DATA!"<<endl;
+    cout<<"LOAD MAP DATA!"<<data_dir<<endl;
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr map_cloud(new pcl::PointCloud<pcl::PointXYZRGB>);
     pcl::PointCloud<pcl::PointXYZ>::Ptr map_cloud_2(new pcl::PointCloud<pcl::PointXYZ>);
     // downsampling
@@ -385,12 +388,13 @@ int main(int argc, char** argv)
     //Read the map set.
     // std::vector<std::string> map_set;
     std::vector<std::string> map_set;
-    std::cout<<"map_name:"<<map_name<<std::endl;
+    std::cout<<"map_name:"<<map_dir<<std::endl;
     if(map_name=="2018-09-24")//|| map_name=="kaist02"
     {
         std::cout<<"map_name:"<<map_name<<std::endl;
         batch_read_filenames_in_folder(maplist_dir, "_filelist.txt", ".pcd", map_set);
     }else{
+        std::cout<<"map_name:"<<map_name<<std::endl;
         for (const auto& entry : std::filesystem::recursive_directory_iterator(map_dir)) {
             if (std::filesystem::is_regular_file(entry)) {
                 map_set.push_back(entry.path().string());
@@ -400,8 +404,8 @@ int main(int argc, char** argv)
     // 
 
     // Sort the filenames of the map set.
-    std::sort(map_set.begin(), map_set.end());
-    cout<<"LOAD MAP DATA OVER!"<<map_set[0]<<endl;
+    // std::sort(map_set.begin(), map_set.end());
+    cout<<"LOAD MAP DATA OVER!"<<map_set.size()<<endl;
 
     auto t1_semantic_map_create = get_now_time();
     //Load the semantic graph map
@@ -512,10 +516,10 @@ int main(int argc, char** argv)
     cout<<"semantic data create times:"<<get_diff_time(t1_semantic_data_create,t2_semantic_data_create)<<endl;
     
 
-    std::string SGC_time_dir = "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"+data_name+"/SGTD_SGC_time_dir.txt";
-    // std::string CRS_time_dir = "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"+data_name+"/CRS_time_dir.txt";
-    std::string VM_time_dir = "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"+data_name+"/SGTD_VM_time_dir.txt";
-    std::string PE_time_dir = "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"+data_name+"/SGTD_PE_time_dir.txt";
+    std::string SGC_time_dir = dataset_path+data_name+"/SGTD_SGC_time_dir.txt";
+    // std::string CRS_time_dir = dataset_path+data_name+"/CRS_time_dir.txt";
+    std::string VM_time_dir = dataset_path+data_name+"/SGTD_VM_time_dir.txt";
+    std::string PE_time_dir = dataset_path+data_name+"/SGTD_PE_time_dir.txt";
     std::vector<double> SGC_time,CRS_time,VM_time,PE_time;
     std::ifstream inputFile("/media/beabbit/T5 EVO/bag/rosbag_/mulran/kaist03/SGC_time_dir_all.txt"); //
     //Read the time spent on building the semantic map

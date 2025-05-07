@@ -1,8 +1,8 @@
 data_process:
-    dataset: "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"
+    dataset: "/home/beabbit/study_space/git work/dataser_exam/"
     config : "/home/beabbit/study_space/SGPR/SG_PR-master/data_process/config/MulRan.yaml"
-    output_label: "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"
-    output_graph: "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"
+    output_label: "/home/beabbit/study_space/git work/dataser_exam/"
+    output_graph: "/home/beabbit/study_space/git work/dataser_exam/"
     label_topic: "/labeled_pc"
     graph_topic: "/graphs"
 
@@ -11,9 +11,9 @@ SG_data:
     map_name  : "KAIST02"
     # data_name : "apollo-data"
     # map_name  : "2018-09-24"
-    vis_flag  : true 
+    vis_flag  : false 
     random_number : 1
-    map_match : true
+    map_match : false
     flag_180 : false
     stop_flag : false
     leaf_size : 3

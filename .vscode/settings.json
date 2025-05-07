@@ -96,7 +96,9 @@
         "rope": "cpp",
         "slist": "cpp",
         "scoped_allocator": "cpp",
-        "netfwd": "cpp"
+        "netfwd": "cpp",
+        "charconv": "cpp",
+        "cuchar": "cpp"
     },
     "cmake.sourceDirectory": "/home/beabbit/study_space/sgtd-2/nvbio/nvbio-test"
 }
