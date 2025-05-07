@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Werror -Wextra -std=c++14 -Wno-deprecated-declarations -ftemplate-backtrace-limit=0 -O3 CMakeFiles/test_cartesian2.dir/test_cartesian2.cpp.o -o test_cartesian2 

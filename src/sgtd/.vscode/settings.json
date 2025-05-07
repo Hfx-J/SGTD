@@ -1,0 +1,10 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/beabbit/study_space/FAST_LIO/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/beabbit/study_space/FAST_LIO/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

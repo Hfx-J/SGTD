@@ -1,0 +1,8 @@
+
+data_process:
+    dataset: "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"
+    output_label: "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"
+    output_graph: "/media/beabbit/T5 EVO/bag/rosbag_/mulran/"
+    label_topic: "/labeled_pc"
+    graph_topic: "/graphs"
+    sequences : ["wild_v02"]

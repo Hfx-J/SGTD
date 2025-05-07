@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20240712-1155-Experimental"
+	Name="beabbit-Lenovo-Legion-Y7000-2020"
+	Generator="ctest-3.29.3"
+	CompilerName="/usr/bin/c++"
+	CompilerVersion="9.4.0"
+	OSName="Linux"
+	Hostname="beabbit-Lenovo-Legion-Y7000-2020"
+	OSRelease="5.15.0-100-generic"
+	OSVersion="#110~20.04.1-Ubuntu SMP Tue Feb 13 14:25:03 UTC 2024"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="165"
+	ProcessorCacheSize="12288"
+	NumberOfLogicalCPU="12"
+	NumberOfPhysicalCPU="6"
+	TotalVirtualMemory="2047"
+	TotalPhysicalMemory="31959"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2600"
+	>
+	<Testing>
+		<StartDateTime>Jul 12 19:55 CST</StartDateTime>
+		<StartTestTime>1720785313</StartTestTime>
+		<TestList/>
+		<EndDateTime>Jul 12 19:55 CST</EndDateTime>
+		<EndTestTime>1720785313</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

@@ -1,0 +1,17 @@
+<launch>
+  <!-- Launch file for velodyne16 VLP-16 LiDAR -->
+
+    <arg name="rviz" default="false" />
+
+    <rosparam command="load" file="$(find sgtd)/config/json.yaml" />
+
+    <node pkg="sgtd" type="create_semantic_graph" name="get_json" output="screen"  >
+          <!-- <env name="LD_PRELOAD" value="/usr/lib/x86_64-linux-gnu/libprofiler.so"/>
+          <env name="CPUPROFILE" value="/tmp/fastlio_profile.prof"/> -->
+    </node>
+
+    <group if="$(arg rviz)">
+    <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find sgtd)/rviz_cfg/loam_livox.rviz" />
+    </group>
+
+</launch>

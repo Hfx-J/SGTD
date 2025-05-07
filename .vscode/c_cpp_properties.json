@@ -1,0 +1,33 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/beabbit/study_space/FAST_LIO/devel/include/**",
+        "/home/beabbit/study_space/long-term-localization/devel/include/**",
+        "/home/beabbit/study_space/lio_sam_ws/devel/include/**",
+        "/home/beabbit/ws_livox/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/beabbit/study_space/long-term-localization/src/common/include/**",
+        "/home/beabbit/study_space/long-term-localization/src/third_parities/eigen_checks/include/**",
+        "/home/beabbit/study_space/FAST_LIO/src/FAST_LIO/include/**",
+        "/home/beabbit/study_space/lio_sam_ws/src/lio_sam-master/include/**",
+        "/home/beabbit/study_space/long-term-localization/src/long_term_relocalization/include/**",
+        "/home/beabbit/study_space/long-term-localization/src/third_parities/mincurves/include/**",
+        "/home/beabbit/study_space/long-term-localization/src/third_parities/minkindr/include/**",
+        "/home/beabbit/study_space/long-term-localization/src/third_parities/minkindr_conversions/include/**",
+        "/home/beabbit/study_space/long-term-localization/src/third_parities/minkindr_gtsam/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
