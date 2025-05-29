@@ -49,7 +49,13 @@ We provide a example dataset in [GoogleDrive](https://drive.google.com/file/d/1T
 If you find our work useful in your research, please consider citing:
 
 ```
-Citation information will be available after publication.
+@article{huang2025sgtd,
+  title={SGTD: A Semantic-Guided Triangle Descriptor for One-Shot LiDAR-Based Global Localization},
+  author={Huang, Feixuan and Gao, Wang and Pan, Shuguo and Liu, Hong and Zhao, Heng},
+  journal={IEEE Robotics and Automation Letters},
+  year={2025},
+  publisher={IEEE}
+}
 ```
 
 ### Contact
