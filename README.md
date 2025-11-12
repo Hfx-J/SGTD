@@ -43,7 +43,7 @@ source ./devel/setup.bash
 roslaunch sgtd semantic_graph_localization.launch
 ```
 ### DataSet
-We provide a example dataset in [GoogleDrive]([https://drive.google.com/file/d/1TAiII6orI8u3fWGBl6jcP4RjUxQmiLwC/view?usp=drive_link](https://drive.google.com/file/d/1TAiII6orI8u3fWGBl6jcP4RjUxQmiLwC/view?usp=sharing)).
+We provide an example dataset in [GoogleDrive](https://drive.google.com/file/d/1TAiII6orI8u3fWGBl6jcP4RjUxQmiLwC/view?usp=sharing).
 ### Citation
 
 If you find our work useful in your research, please consider citing:
