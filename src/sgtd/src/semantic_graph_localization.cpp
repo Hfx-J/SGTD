@@ -521,27 +521,31 @@ int main(int argc, char** argv)
     std::string VM_time_dir = dataset_path+data_name+"/SGTD_VM_time_dir.txt";
     std::string PE_time_dir = dataset_path+data_name+"/SGTD_PE_time_dir.txt";
     std::vector<double> SGC_time,CRS_time,VM_time,PE_time;
-    std::ifstream inputFile("/media/beabbit/T5 EVO/bag/rosbag_/mulran/kaist03/SGC_time_dir_all.txt"); //
-    //Read the time spent on building the semantic map
-    std::vector<double> SGC_time_all;
 
-    if (!inputFile) {
-        std::cerr << "Unable to open the file!" << std::endl;
-        return 1;
-    }
-    cout<<"start"<<endl;
 
-    std::string line;
-    while (std::getline(inputFile, line)) {
-        std::stringstream ss(line); 
-        double value;
-        if (ss >> value) { // 
-            SGC_time_all.push_back(value);
-        }
-    }
+    // std::ifstream inputFile("/media/beabbit/T5 EVO/bag/rosbag_/mulran/kaist03/SGC_time_dir_all.txt"); //
+    // //Read the time spent on building the semantic map
+    // std::vector<double> SGC_time_all;
 
-    inputFile.close();
-    cout<<"over"<<endl;
+    // if (!inputFile) {
+    //     std::cerr << "Unable to open the file!" << std::endl;
+    //     return 1;
+    // }
+    // cout<<"start"<<endl;
+
+    // std::string line;
+    // while (std::getline(inputFile, line)) {
+    //     std::stringstream ss(line); 
+    //     double value;
+    //     if (ss >> value) { // 
+    //         SGC_time_all.push_back(value);
+    //     }
+    // }
+
+    // inputFile.close();
+    // cout<<"over"<<endl;
+
+
     ros::Rate loop_rate(10);
     ros::Rate slow_loop(500);
     //Initialize parameters
@@ -760,7 +764,7 @@ int main(int argc, char** argv)
             fina_y.push_back(MAt_i1(1,3));
             // pair_x.push_back()
         }
-        SGC_time.push_back(SGC_time_all[idx]);
+        // SGC_time.push_back(SGC_time_all[idx]);
         VM_time.push_back(get_diff_time(t1_STD,t5_STD));
         PE_time.push_back(get_diff_time(t2_STD,t5_STD));
         total_time += get_diff_time(t1_STD,t5_STD);
@@ -967,9 +971,9 @@ int main(int argc, char** argv)
     
     // saveVectorToFile(error_all,trans_error_dir);
     // saveVectorToFile(rot_error,rot_error_dir);
-    saveVectorToFile(Time_list,time_dir);
+    // saveVectorToFile(Time_list,time_dir);
     // saveVectorToFile(CS1_list,CS1_time_dir);
-    saveVectorToFile(idx_list,idx_dir);
+    // saveVectorToFile(idx_list,idx_dir);
     // saveVectorToFile(SGC_time,SGC_time_dir);
     // // saveVectorToFile(CRS_time,CRS_time_dir);
     // saveVectorToFile(VM_time,VM_time_dir);

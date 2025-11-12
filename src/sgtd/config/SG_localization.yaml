@@ -1,10 +1,5 @@
 data_process:
-    dataset: "/home/beabbit/study_space/git work/dataser_exam/"
-    config : "/home/beabbit/study_space/SGPR/SG_PR-master/data_process/config/MulRan.yaml"
-    output_label: "/home/beabbit/study_space/git work/dataser_exam/"
-    output_graph: "/home/beabbit/study_space/git work/dataser_exam/"
-    label_topic: "/labeled_pc"
-    graph_topic: "/graphs"
+    dataset: "/home/beabbit/study_space/SGTD_FIX/SGTD/data/dataser_exam/"
 
 SG_data:
     data_name : "KAIST03"

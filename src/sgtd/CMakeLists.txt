@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10.0)
 project(sgtd)
 
-#SET(CMAKE_BUILD_TYPE "Debug")
+# SET(CMAKE_BUILD_TYPE "Debug")
 set(CMAKE_BUILD_TYPE "Release")
 ADD_COMPILE_OPTIONS(-std=c++17 )
 set( CMAKE_CXX_FLAGS "-std=c++17 -O3" )
@@ -187,7 +187,7 @@ if(BUILD_VGICP_CUDA)
 
   endif()
 
-add_executable(create_semantic_graph src/get_json.cpp  src/ssc.cpp) 
+add_executable(create_semantic_graph src/get_json.cpp  ) 
 target_link_libraries(create_semantic_graph ${catkin_LIBRARIES}  ${PCL_LIBRARIES} ${PYTHON_LIBRARIES} yaml-cpp  nlohmann_json fast_gicp ${OpenCV_LIBS})
 target_include_directories(create_semantic_graph PRIVATE ${PYTHON_INCLUDE_DIRS} )
 
@@ -195,7 +195,7 @@ target_include_directories(create_semantic_graph PRIVATE ${PYTHON_INCLUDE_DIRS} 
 # target_link_libraries(create_semantic_graph_wild ${catkin_LIBRARIES}  ${PCL_LIBRARIES} ${PYTHON_LIBRARIES} yaml-cpp  nlohmann_json fast_gicp ${OpenCV_LIBS})
 # target_include_directories(create_semantic_graph_wild PRIVATE ${PYTHON_INCLUDE_DIRS} )
 
-add_executable(semantic_graph_localization src/semantic_graph_localization.cpp src/ssc.cpp src/STDesc.cpp ) 
+add_executable(semantic_graph_localization src/semantic_graph_localization.cpp  src/STDesc.cpp ) 
 
 target_link_libraries(semantic_graph_localization ${catkin_LIBRARIES}  ${PCL_LIBRARIES} ${PYTHON_LIBRARIES} yaml-cpp  nlohmann_json fast_gicp ${OpenCV_LIBS} ${CERES_LIBRARIES} -lffi) 
 target_include_directories(semantic_graph_localization PRIVATE ${PYTHON_INCLUDE_DIRS} include )
